@@ -18,6 +18,7 @@ class MyButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Center(
+          // text
           child: Text(
             text,
             style: const TextStyle(

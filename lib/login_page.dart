@@ -52,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  //sign in with gmail account
   signInWithGoogle() async {
     try {
       GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -85,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
       }
     } catch (e) {
       print('Error during Google Sign-In and Firebase authentication: $e');
-      // Handle the error as needed, e.g., show a snackbar, display an error message, etc.
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Failed to sign in with Google. Please try again.'),
@@ -154,9 +155,11 @@ class _LoginPageState extends State<LoginPage> {
                             fontWeight: FontWeight.bold),
                       ),
                     ),
+
                     const SizedBox(
                       height: 15,
                     ),
+
                     MyTextField(
                         controller: emailnameController,
                         hintText: 'Email',
@@ -166,6 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(
                       height: 10,
                     ),
+
                     // password textfield
                     MyTextField(
                         controller: passwordController,
@@ -175,7 +179,6 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(
                       height: 10,
                     ),
-                    // forgot password?
 
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -192,8 +195,8 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(
                       height: 10,
                     ),
-                    // sign in button
 
+                    // sign in button
                     MyButton(
                       text: "Sign In",
                       onTop: signUserIn,
@@ -237,7 +240,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 10,
                     ),
 
-                    // Inside your _LoginPageState class
+                    //gmail login button
                     SquareTile(
                       onTap: () {
                         signInWithGoogle();
@@ -253,7 +256,7 @@ class _LoginPageState extends State<LoginPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Not a Member?',
                           style: TextStyle(color: Colors.grey),
                         ),

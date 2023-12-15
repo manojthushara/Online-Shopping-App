@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:get_data_and_display/components/my_button.dart';
 
 import 'components/my_button02.dart';
 
 class ProductDetailPage extends StatelessWidget {
+
+  // main strings
   final String title;
   final String brand;
   final num price;
@@ -13,6 +14,7 @@ class ProductDetailPage extends StatelessWidget {
   final List<String> images;
   final num rating;
 
+  // add product list
   ProductDetailPage({
     required this.title,
     required this.brand,
@@ -50,59 +52,69 @@ class ProductDetailPage extends StatelessWidget {
                   enlargeCenterPage: true,
                 ),
               )
-                  : Image.network(
-                'https://example.com/dummy-image.jpg',
-                width: double.infinity,
-                height: 200.0,
-                fit: BoxFit.cover,
-              ),
+              // API images dont have display image
+                  : Image.asset('lib/images/empty.jpg'),
 
               Padding(
                 padding: const EdgeInsets.all(32.0),
                 child: Container(
-
                   decoration: BoxDecoration(
                     color: Colors.white60,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   height: 250,
                   width: 400,
+
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
+
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        //band
                         Text('Brand: $brand',style:
-                          TextStyle(
+                          const TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold
                           ),),
-                        SizedBox(height: 5,),
+
+                        const SizedBox(height: 5,),
+
+                        //price
                         Text('Price: \$${price.toString()}',style:
 
-                        TextStyle(
+                        const TextStyle(
                           color: Colors.red,
                             fontSize: 20,
                             fontWeight: FontWeight.bold
                         ),),
-                        SizedBox(height: 5,),
+
+                        const SizedBox(height: 5,),
+
+                        //rating
                         Text('Ratings: ${rating.toString()}',style:
-                        TextStyle(
+                        const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold
                         ),),
-                        SizedBox(height: 5,),
+
+                        const SizedBox(height: 5,),
+
+                        //description
                         Text('Description: $description',style:
-                        TextStyle(
+                        const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold
                         ),),
-                        SizedBox(height: 20,),
+
+                        const SizedBox(height: 20,),
+
+                        //buttons
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             MyButton02(onTop: () {}, text: 'Buy Now'),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 10,),
                             MyButton02(onTop: () {}, text: 'Add to cart')
                           ],
                         )

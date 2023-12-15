@@ -140,7 +140,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
             Container(
               height: 740,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50)),
@@ -190,7 +190,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                           ),
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.purple),
                           ),
                           fillColor: Colors.white,
@@ -284,7 +284,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Already have Account?',
                           style: TextStyle(color: Colors.grey),
                         ),

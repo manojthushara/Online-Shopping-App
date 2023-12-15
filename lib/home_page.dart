@@ -12,7 +12,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //Current user
   final user = FirebaseAuth.instance.currentUser;
+  //product list
   List<dynamic> products = [];
 
   @override
@@ -20,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     fetchData();
   }
-
+// fetch data method
   Future<void> fetchData() async {
     final response =
     await http.get(Uri.parse('https://dummyjson.com/products'));
@@ -42,6 +44,7 @@ class _HomePageState extends State<HomePage> {
     FirebaseAuth.instance.signOut();
   }
 
+  // products builder get data on json
   Widget buildProductCard(Map<String, dynamic> product) {
     String thumbnailUrl = product['thumbnail'] as String? ?? '';
     String title = product['title'] as String? ?? 'No Title';
@@ -68,6 +71,7 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         },
+        // main container
         child: Container(
           height: 220,
           decoration: BoxDecoration(
@@ -79,6 +83,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Column(
                 children: [
+                  //image
                   Padding(
                     padding: const EdgeInsets.only(top: 7),
                     child: ClipRRect(
@@ -100,6 +105,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       
                       children: [
+                        //title
                         Text(
                           title,
                           style: TextStyle(
@@ -107,7 +113,10 @@ class _HomePageState extends State<HomePage> {
                             fontSize: 17,
                           ),
                         ),
+
                         SizedBox(height: 5),
+
+                        //brand
                         Text(
                           'Brand: $brand',
                           style: TextStyle(
@@ -115,6 +124,8 @@ class _HomePageState extends State<HomePage> {
                             fontSize: 15,
                           ),
                         ),
+
+                        //price
                         Text(
                           'Price: \$${price.toString()}',
                           style: TextStyle(
@@ -142,6 +153,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Product List'),
         actions: [
+          //sign out button
           IconButton(
             onPressed: signUserOut,
             icon: Icon(Icons.logout), // Use the exit icon
@@ -151,7 +163,9 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
+
           SizedBox(height: 10),
+
           const Text(
             'Welcome to Online Shopping',
             style: TextStyle(
@@ -166,7 +180,9 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+
           const SizedBox(height: 5),
+
           Text(
             user?.email ?? 'Not logged in',
             style: const TextStyle(
@@ -174,7 +190,10 @@ class _HomePageState extends State<HomePage> {
               fontWeight: FontWeight.bold,
             ),
           ),
+
           const SizedBox(height: 5),
+
+          //List builder
           Expanded(
             child: Container(
               child: ListView.builder(
