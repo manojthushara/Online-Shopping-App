@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "530592230453",
+    "project_id": "get-data-and-display",
+    "storage_bucket": "get-data-and-display.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530592230453:android:62d56aa67151eb8ad4d57c",
+        "android_client_info": {
+          "package_name": "com.example.get_data_and_display"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9LEBKBHYH-Nj1-gr18PJJ-uxvqPbzAAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
